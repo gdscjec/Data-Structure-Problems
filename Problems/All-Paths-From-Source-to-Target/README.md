@@ -6,7 +6,7 @@ The graph is given as follows: `graph[i]` is a list of all nodes you can visit f
 
 ##### Constraints:
 
-- `n` == graph.length`
+- `n == graph.length`
 - `2 <= n <= 15`
 - `0 <= graph[i][j] < n`
 - `graph[i][j] != i` (i.e., there will be no self-loops).
