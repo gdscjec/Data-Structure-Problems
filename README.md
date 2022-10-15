@@ -2,10 +2,7 @@
 
 # Hacktoberfest-2022🔥
 
-<br>
-<p align="center">
-    <img src="images/Logo.JPG">
-</p>
+![Hacktoberfest](images/Logo.jpg)
 
 Feel free to use this project to make your first contribution to an open-source project on GitHub.
 
