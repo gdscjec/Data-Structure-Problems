@@ -1,0 +1,39 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+string largestNumber(vector<int>& nums) 
+{
+        int size = nums.size();
+        string res = "";
+        //converting int elements to array
+        vector<string> strNums(size, "");
+        for (int i = 0; i < size; i++) {
+            strNums[i] = to_string(nums[i]);
+        }
+        //sorting array using comparator function
+        sort(strNums.begin(), strNums.end(), [](const string &a, const string &b){
+            return ((a+b) > (b+a));
+        });
+        
+        for (auto num : strNums) {
+            res += num;
+        }
+        
+        return res[0] == '0' ? "0" : res;
+    }
+
+int main()
+{
+  vector<int> arr = {3,30,34,5,9};
+ int n=arr.size();
+ cout<<"Array: ";
+ for(int i=0;i<n;i++)
+  {
+    cout<<arr[i]<<" ";
+  }
+  cout<<endl;
+  string x= largestNumber(arr);
+ 
+  cout<<"Largest Number: "<<x;
+  return 0;
+}
