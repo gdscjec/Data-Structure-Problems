@@ -21,3 +21,4 @@ Add your name to tle list of contributers followed by your username.
 - Ishita Modi | Ishitamodi03
 - Akash Kumar | erotic-ops
 - Klevin Pascal | Klevin05
+- Laura Sims | laurasimsdev
