@@ -1,65 +1,60 @@
-vector<vector<int>> fourSum(vector<int> &num, int target)
+class Solution
 {
-    vector<vector<int>> res;
-
-    if (num.size() < 4)
-        return res;
-    int n = num.size();
-    sort(num.begin(), num.end());
-
-    for (int i = 0; i < n; i++)
+public:
+    vector<vector<int>> fourSum(vector<int> &nums, int target)
     {
+        if (nums.size() < 4)
+            return {};
 
-        long long target_3 = target - num[i];
+        vector<vector<int>> ans;
+        sort(nums.begin(), nums.end());
 
-        for (int j = i + 1; j < n; j++)
+        for (int i = 0; i < nums.size() - 3; increment(nums, i))
         {
-
-            long long target_2 = (long long)target_3 - num[j];
-
-            int front = j + 1;
-            int back = n - 1;
-
-            while (front < back)
+            for (int j = i + 1; j < nums.size() - 2; increment(nums, j))
             {
+                int l = j + 1, r = nums.size() - 1;
+                long sum = 0;
 
-                long long two_sum = num[front] + num[back];
-
-                if (two_sum < target_2)
-                    front++;
-
-                else if (two_sum > target_2)
-                    back--;
-
-                else
+                // two pointer
+                while (l < r)
                 {
+                    sum = (long)nums[i] + nums[j] + nums[l] + nums[r];
 
-                    vector<int> quadruplet(4, 0);
-                    quadruplet[0] = num[i];
-                    quadruplet[1] = num[j];
-                    quadruplet[2] = num[front];
-                    quadruplet[3] = num[back];
-                    res.push_back(quadruplet);
-
-                    // Processing the duplicates of number 3
-                    while (front < back && num[front] == quadruplet[2])
-                        ++front;
-
-                    // Processing the duplicates of number 4
-                    while (front < back && num[back] == quadruplet[3])
-                        --back;
+                    // if a solution is found, add it and change both pointers
+                    if (sum == target)
+                    {
+                        ans.push_back({nums[i], nums[j], nums[l], nums[r]});
+                        increment(nums, l);
+                        decrement(nums, r);
+                    }
+                    // if sum is lesser, move left pointer to right by 1
+                    else if (sum < target)
+                        increment(nums, l);
+                    // else if sum is greater, move right pointer to left by 1
+                    else
+                        decrement(nums, r);
                 }
             }
-
-            // Processing the duplicates of number 2
-            while (j + 1 < n && num[j + 1] == num[j])
-                ++j;
         }
 
-        // Processing the duplicates of number 1
-        while (i + 1 < n && num[i + 1] == num[i])
-            ++i;
+        return ans;
     }
 
-    return res;
-}
+    // increment() & decrement() are helper functions to avoid duplicates
+    // basically, they do i++ or i-- but until a different number is found
+
+    void increment(vector<int> &nums, int &n)
+    {
+        do
+            n++;
+        while (n < nums.size() && nums[n] == nums[n - 1]);
+    }
+
+    void decrement(vector<int> &nums, int &n)
+    {
+        do
+            n--;
+        while (n >= 0 && nums[n] == nums[n + 1]);
+    }
+};
