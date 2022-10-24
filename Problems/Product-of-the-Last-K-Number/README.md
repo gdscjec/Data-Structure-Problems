@@ -17,5 +17,5 @@ The test cases are generated so that, at any time, the product of any contiguous
 - At most `4 * 10^4` calls will be made to `add` and `getProduct`.
 - The product of the stream at any point in time will fit in a **32-bit** integer.
 
-##### Reference:
-[Product of the Last `k` Numbers](https://leetcode.com/problems/product-of-the-last-`k`-numbers/)
+##### Reference
+[Product of the Last `k` Numbers](https://leetcode.com/problems/product-of-the-last-k-numbers/)
