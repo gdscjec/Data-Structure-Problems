@@ -22,3 +22,4 @@ Add your name to tle list of contributers followed by your username.
 - Akash Kumar | erotic-ops
 - Klevin Pascal | Klevin05
 - Laura Sims | laurasimsdev
+- Chahat Gupta | chahat-ji
