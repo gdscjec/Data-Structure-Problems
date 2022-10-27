@@ -1,8 +1,7 @@
-public int countDigitOne(int n) {
+class Solution {
+  public int countDigitOne(int n) {
 
   int count = 0;
-
-    
 
   for (long k = 1; k <= n; k *= 10) {
 
@@ -14,8 +13,8 @@ public int countDigitOne(int n) {
 
   }
 
-    
-
   return count;
+
+}
 
 }
